@@ -100,7 +100,7 @@ void Widget::on_pushButton_3_clicked()
         QMessageBox msg(QMessageBox::Critical, "Ошибка", "Пожалуйста введите \n положительное число!", QMessageBox::Ok);
         msg.exec();
     }else{
-        emit find_all_airports_signal(&list_airports, number_current, max_range_fly);
+        emit find_all_airports_signal(list_airports[0], number_current, max_range_fly);
     }
 }
 //-----------Найти кратчайший маршрут---------------
@@ -116,16 +116,18 @@ void Widget::on_pushButton_4_clicked()
         QMessageBox msg(QMessageBox::Critical, "Ошибка", "Пожалуйста введите \n положительное число!", QMessageBox::Ok);
         msg.exec();
     }else{
-        emit find_way_signal(&list_airports, number_current, number_destination, max_range_fly);
+        emit find_way_signal(list_airports[0], number_current, number_destination, max_range_fly);
     }
 }
 
 
-void return_all_airports(QVector <QVector <QString>> list_all_airports){
+void Widget::return_all_airports(QVector <QString> list_all_airports){
     Q_UNUSED(list_all_airports);
+    //qDebug() << "Поискали аэропорты" << list_all_airports;
 }
 
-void return_way(QVector <QVector <QString>> list_way_by_airports){
+void Widget::return_way(QVector <QString> list_way_by_airports){
     Q_UNUSED(list_way_by_airports);
+    //qDebug() << "Поискали путь" << list_way_by_airports;
 }
 

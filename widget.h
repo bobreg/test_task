@@ -44,12 +44,12 @@ private:
     double max_range_fly;                         // максимальная дальность полёта самолёта
 
 signals:
-    void find_all_airports_signal(QVector <QVector <QString>> *, double, double);
-    void find_way_signal(QVector <QVector <QString>> *, double, double, double);
+    void find_all_airports_signal(const QVector <QString> &, double, double);
+    void find_way_signal(const QVector <QString> &, double, double, double);
 
 public slots:
-    void return_all_airports(QVector <QVector <QString>>);
-    void return_way(QVector <QVector <QString>>);
+    void return_all_airports(QVector <QString>);
+    void return_way(QVector <QString>);
 
 };
 #endif // WIDGET_H
