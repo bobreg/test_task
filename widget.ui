@@ -28,7 +28,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Список аэродромов и их координаты</string>
+    <string>Список аэропортовв и их координаты</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -251,7 +251,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Найти все аэродромы от текущего не далее (км) :</string>
+    <string>Найти все аэропорты от текущего не далее (км) :</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -327,7 +327,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Выполнить</string>
+    <string>Найти</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget_3">
@@ -361,7 +361,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Найти кратчайший маршрут из текущего аэропорта в аэропорт назначения в</string>
+    <string>Кратчайший маршрут из текущего аэропорта в аэропорт назначения</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

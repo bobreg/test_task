@@ -6,6 +6,7 @@
 #include <QTextStream>
 #include <QVector>
 #include <QDebug>
+#include <QMessageBox>
 
 
 QT_BEGIN_NAMESPACE
@@ -33,13 +34,22 @@ private:
     Ui::Widget *ui;
 
     QFile air;
-    QVector <QVector <QString>> vector_airports;  // база всех считанных аэропортов из файла
-    QString current_airport;
-    QString destination_airport;
+    QVector <QVector <QString>> list_airports;    // база всех считанных аэропортов из файла
+    QString current_airport;                      // текущий аэропорт
+    QString destination_airport;                  // аэропорт назначения
 
-    int number_current;
-    int numder_destination;
-    double max_range_fly;
-    double max_circle;
+    int number_current;                           // индекс текущего аэропорта в базе
+    int number_destination;                       // индекс аэропорта назначения в базе
+    double max_circle;                            // радиус максимального поиска
+    double max_range_fly;                         // максимальная дальность полёта самолёта
+
+signals:
+    void find_all_airports_signal(QVector <QVector <QString>> *, double, double);
+    void find_way_signal(QVector <QVector <QString>> *, double, double, double);
+
+public slots:
+    void return_all_airports(QVector <QVector <QString>>);
+    void return_way(QVector <QVector <QString>>);
+
 };
 #endif // WIDGET_H
