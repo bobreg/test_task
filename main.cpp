@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[])
 {
+    // нужно внести проверку на существование файла и его правильность
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication a(argc, argv);
     Widget w;
