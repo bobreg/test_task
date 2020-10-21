@@ -120,6 +120,7 @@ void Widget::on_pushButton_4_clicked()
     }
 }
 
+
 void return_all_airports(QVector <QVector <QString>> list_all_airports){
     Q_UNUSED(list_all_airports);
 }
@@ -127,3 +128,4 @@ void return_all_airports(QVector <QVector <QString>> list_all_airports){
 void return_way(QVector <QVector <QString>> list_way_by_airports){
     Q_UNUSED(list_way_by_airports);
 }
+

@@ -4,7 +4,7 @@ MainLogic::MainLogic(QObject *parent) : QObject(parent)
 {
 
 }
-
+/*
 void find_all_airport(QVector <QVector <QString>> * list_airports,
                       double current_airport,
                       double circle){
@@ -24,3 +24,4 @@ void find_way(QVector <QVector <QString>> * list_airports,
     Q_UNUSED(destination_airport);
     qDebug() << "Ищем путь";
 }
+*/
