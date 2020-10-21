@@ -13,8 +13,9 @@ int main(int argc, char *argv[])
 
     QApplication::connect(&w, &Widget::find_way_signal, &mainLogic, &MainLogic::find_way);
     QApplication::connect(&w, &Widget::find_all_airports_signal, &mainLogic, &MainLogic::find_all_airport);
-    //QApplication::connect(&mainLogic, &MainLogic::return_way_signal, &w, &Widget::return_way);
-    //QApplication::connect(&mainLogic, &MainLogic::return_all_airport_signal, &w, &Widget::return_all_airports);
+
+    QApplication::connect(&mainLogic, &MainLogic::return_way_signal, &w, &Widget::return_way); // надо сменить переменные
+    QApplication::connect(&mainLogic, &MainLogic::return_all_airport_signal, &w, &Widget::return_all_airports);
 
     w.show();
     return a.exec();
