@@ -22,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     mainlogic.h \
+    mystruct.h \
     widget.h
 
 FORMS += \

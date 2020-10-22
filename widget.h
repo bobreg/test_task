@@ -7,6 +7,8 @@
 #include <QVector>
 #include <QDebug>
 #include <QMessageBox>
+#include "mystruct.h"
+
 
 
 QT_BEGIN_NAMESPACE
@@ -48,7 +50,7 @@ signals:
     void find_way_signal(const QVector <QString> &, int, int, int, double);
 
 public slots:
-    void return_all_airports(QVector <QVector <QString>>);
+    void return_all_airports(QVector <index_with_airport>);
     void return_way(QVector <QString>);
 
 };
