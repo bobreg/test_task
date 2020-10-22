@@ -54,6 +54,7 @@ Widget::Widget(QWidget *parent)
         }
     }
     list_airports.remove(0);
+    //qDebug() << list_airports.size();
 }
 
 Widget::~Widget()

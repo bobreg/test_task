@@ -14,8 +14,15 @@ public:
 private:
     QVector <QVector <QString>> way_by_airports;
     QVector <QVector <QString>> all_airports;
+    QVector <QVector <double>> XY_for_all_airports;
+
+    double X_current_airport = 0;  // координаты аэропортов в декартовой системе
+    double Y_current_airport = 0;
+    double X_destination_airport = 0;
+    double Y_destination_airport = 0;
 
     QVector <double> dec_coord(double, double);  //перевод гео координат в декартовые по гост 51794-2008
+    QVector <QVector <QString>> compare_cycle_airports(const QVector <QString> &, int, double);  //возвращает список аэропортов радиусе от текущего
 
     // переменные для пересчёта координат
     double a_wgs;             // общеземной эллипсоид с большой полуосью
