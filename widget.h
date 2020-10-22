@@ -38,17 +38,17 @@ private:
     QString current_airport;                      // текущий аэропорт
     QString destination_airport;                  // аэропорт назначения
 
-    int number_current;                           // индекс текущего аэропорта в базе
-    int number_destination;                       // индекс аэропорта назначения в базе
-    double max_circle;                            // радиус максимального поиска
-    double max_range_fly;                         // максимальная дальность полёта самолёта
+    int number_current = 0;                           // индекс текущего аэропорта в базе
+    int number_destination = 0;                       // индекс аэропорта назначения в базе
+    double max_circle = 10;                            // радиус максимального поиска
+    double max_range_fly = 10;                         // максимальная дальность полёта самолёта
 
 signals:
-    void find_all_airports_signal(const QVector <QString> &, int, double, double);
-    void find_way_signal(const QVector <QString> &, int, double, double, double);
+    void find_all_airports_signal(const QVector <QString> &, int, int, double);
+    void find_way_signal(const QVector <QString> &, int, int, int, double);
 
 public slots:
-    void return_all_airports(QVector <QString>);
+    void return_all_airports(QVector <QVector <QString>>);
     void return_way(QVector <QString>);
 
 };

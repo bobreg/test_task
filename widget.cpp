@@ -99,8 +99,11 @@ void Widget::on_pushButton_3_clicked()
     }else if(max_circle <= 0){
         QMessageBox msg(QMessageBox::Critical, "Ошибка", "Пожалуйста введите \n положительное число!", QMessageBox::Ok);
         msg.exec();
+    }else if(ui->label_4->text() == "Nan / 0.0 / 0.0"){
+        QMessageBox msg(QMessageBox::Critical, "Ошибка", "Не выбран текущий аэропорт!", QMessageBox::Ok);
+        msg.exec();
     }else{
-        emit find_all_airports_signal(list_airports[0], list_airports.size(), number_current, max_range_fly);
+        emit find_all_airports_signal(list_airports[0], list_airports.size(), number_current, max_circle);
     }
 }
 //-----------Найти кратчайший маршрут---------------
@@ -115,15 +118,27 @@ void Widget::on_pushButton_4_clicked()
     }else if(max_range_fly <= 0){
         QMessageBox msg(QMessageBox::Critical, "Ошибка", "Пожалуйста введите \n положительное число!", QMessageBox::Ok);
         msg.exec();
+    }else if(ui->label_4->text() == "Nan / 0.0 / 0.0" || ui->label_6->text() == "Nan / 0.0 / 0.0"){
+        QMessageBox msg(QMessageBox::Critical, "Ошибка", "Не выбран текущий аэропорт\nи аэропорт назначения!", QMessageBox::Ok);
+        msg.exec();
     }else{
         emit find_way_signal(list_airports[0], list_airports.size(), number_current, number_destination, max_range_fly);
     }
 }
 
 
-void Widget::return_all_airports(QVector <QString> list_all_airports){
-    //Q_UNUSED(list_all_airports);
-    qDebug() << "Поискали аэропорты" << list_all_airports;
+void Widget::return_all_airports(QVector <QVector <QString>> list_all_airports){
+    ui->tableWidget_2->setRowCount(list_all_airports.size());
+    for(int i = 0; i < list_all_airports.size(); i++){
+        for (int j = 0; j < 3; j++) {
+            ui->tableWidget_2->setItem(i, j, new QTableWidgetItem (list_all_airports[i][j]));
+        }
+    }
+    /*Q_UNUSED(list_all_airports);
+    qDebug() << "Поискали аэропорты";
+    for(auto i : list_all_airports){
+        qDebug() << i;
+    }*/
 }
 
 void Widget::return_way(QVector <QString> list_way_by_airports){
