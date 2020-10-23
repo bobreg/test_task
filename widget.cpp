@@ -1,6 +1,8 @@
 #include "widget.h"
 #include "ui_widget.h"
 
+
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
@@ -128,11 +130,11 @@ void Widget::on_pushButton_4_clicked()
 }
 
 
-void Widget::return_all_airports(QVector <QVector <QString>> list_all_airports){
+void Widget::return_all_airports(QVector <index_with_airport> list_all_airports){
     ui->tableWidget_2->setRowCount(list_all_airports.size());
     for(int i = 0; i < list_all_airports.size(); i++){
         for (int j = 0; j < 3; j++) {
-            ui->tableWidget_2->setItem(i, j, new QTableWidgetItem (list_all_airports[i][j]));
+            ui->tableWidget_2->setItem(i, j, new QTableWidgetItem (list_all_airports[i].airport[j]));
         }
     }
     /*Q_UNUSED(list_all_airports);

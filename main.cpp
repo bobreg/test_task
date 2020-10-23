@@ -3,6 +3,7 @@
 
 #include <QApplication>
 
+
 int main(int argc, char *argv[])
 {
     // нужно внести проверку на существование файла и его правильность
