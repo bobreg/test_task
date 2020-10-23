@@ -51,7 +51,8 @@ signals:
 
 public slots:
     void return_all_airports(QVector <index_with_airport>);
-    void return_way(QVector <QString>);
+    void return_way(QVector <QVector <QString>>);
+    void change_progressBar(int);
 
 };
 #endif // WIDGET_H

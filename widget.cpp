@@ -144,8 +144,24 @@ void Widget::return_all_airports(QVector <index_with_airport> list_all_airports)
     }*/
 }
 
-void Widget::return_way(QVector <QString> list_way_by_airports){
+void Widget::return_way(QVector <QVector <QString>> list_way_by_airports){
     //Q_UNUSED(list_way_by_airports);
-    qDebug() << "Поискали путь" << list_way_by_airports;
+    //qDebug() << "Поискали путь" << list_way_by_airports;
+    if(!list_way_by_airports.isEmpty()){
+        ui->tableWidget_3->setRowCount(list_way_by_airports.size());
+        for(int i = 0; i < list_way_by_airports.size(); i++){
+            for (int j = 0; j < 3; j++) {
+                ui->tableWidget_3->setItem(i, j, new QTableWidgetItem (list_way_by_airports[i][j]));
+            }
+        }
+    }else{
+        QMessageBox msg(QMessageBox::Warning, "Ошибка", "Не удалось найти возможный короткий путь!\n"
+                                                        "Попробуйте расширить дальность полёта", QMessageBox::Ok);
+        msg.exec();
+    }
+}
+
+void Widget::change_progressBar(int a){
+    ui->progressBar->setValue(a);
 }
 

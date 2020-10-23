@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     QApplication::connect(&mainLogic, &MainLogic::return_way_signal, &w, &Widget::return_way); // надо сменить переменные
     QApplication::connect(&mainLogic, &MainLogic::return_all_airport_signal, &w, &Widget::return_all_airports);
 
+    QApplication::connect(&mainLogic, &MainLogic::change_progress_bar, &w, &Widget::change_progressBar);
     w.show();
     return a.exec();
 }
