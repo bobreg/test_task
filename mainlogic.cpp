@@ -144,6 +144,7 @@ int MainLogic::next_airport(const QVector <QString> & list_airports, int iter, d
     //необходимые переменные
     //дистанция между аэропортом назначения и предыдущей позицией
     last_distanse_A_B = hypot(XY_for_all_airports[iter][0] - X_destination_airport, XY_for_all_airports[iter][1] - Y_destination_airport);
+    qDebug() << last_distanse_A_B / 1000 << "---------" << circle;
 
     QVector <index_with_airport> list_air; // список проверяемых аэропортов в радиусе от переданного аэропорта
     //qDebug() << distanse_A_B / 1000 << iter << (&list_airports)[iter];
@@ -166,7 +167,7 @@ int MainLogic::next_airport(const QVector <QString> & list_airports, int iter, d
             if(dist_to_d == 0){  // если мы прилетели в аэропорт назначения то закончим поиск и вернём его индекс
                 return i.index;
             }
-            //qDebug() << dist_to_d/1000 << i.index << i.airport;
+            qDebug() << dist_to_d/1000 << i.index << i.airport;
             if(dist_to_d <= last_distanse_A_B){ // если новая дальность меньше исходной, то
                 indexes_of_checked_airport.append(i.index); // если нам подходит аэропорт добавим его в список посещённых
                 last_distanse_A_B = dist_to_d; // переопределим дальность до аэр. назначения от этого подходящего нам аэропорта

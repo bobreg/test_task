@@ -158,6 +158,7 @@ void Widget::return_way(QVector <QVector <QString>> list_way_by_airports){
         QMessageBox msg(QMessageBox::Warning, "Ошибка", "Не удалось найти возможный короткий путь!\n"
                                                         "Попробуйте расширить дальность полёта", QMessageBox::Ok);
         msg.exec();
+        ui->progressBar->setValue(0);
     }
 }
 
